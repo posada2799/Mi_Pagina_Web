@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Fashions - Crear Cuenta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <div class="logo-circle">B</div>
+      <h1>More Fashions</h1>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="#">Catálogo</a>
+      <a href="#">Ofertas</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="left">
+      <div class="card">
+        <div class="icon">
+          <img src="img/logo.png.png" alt="Moda" class="imagen-banner">
+        </div>
+        <h2>Moda Femenina</h2>
+        <p>Descubre tu estilo único</p>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="form-container">
+        <form action="registro.php" method="POST">
+          <input type="hidden" name="accion" value="registro">
+          <h2>Crear Cuenta</h2>
+          <p>Únete a nuestra comunidad de moda y se parte de nosotros</p>
+          <div class="form-group">
+            <input type="text" name="Nombre" placeholder="Nombre" required>
+            <input type="text" name="Apellido" placeholder="Apellido" required>
+          </div>
+          <input type="email" name="Correo" placeholder="Correo" required>
+          <input type="tel" name="Telefono" placeholder="Teléfono">
+          <input type="password" name="Password" placeholder="Contraseña"required>
+          <input type="password" name="Password" placeholder="Password" required>
+          <input type="date" name="Fecha" placeholder="Fecha">
+          <button type="submit">Registrarse</button>
+          <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p><!--con esta linea paso al documento login de gtml -->
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>More Fashions - Crear Cuenta</title>
-  <link rel="stylesheet" href="style.css">
+  <title>More Fashions - Inicio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="navbar">
@@ -13,42 +13,50 @@
       <h1>More Fashions</h1>
     </div>
     <nav>
-      <a href="#">Inicio</a>
+      <a href="index.html">Inicio</a>
       <a href="#">Catálogo</a>
       <a href="#">Ofertas</a>
       <a href="#">Contacto</a>
+      <a href="login.html">Iniciar Sesion</a>
     </nav>
   </header>
+<section class="banner_principal">
+  <h1>Encuentra tu estilo único</h1>
+  <h1><strong> Nueva Colección 2026</strong></h1>
+  <a href="#catalogo" class="btn-hero">Ver Catálogo</a>
+  <br>
+  <h3>-Del 1 al 28 Agosto</h3>
+  </section>
 
-  <main class="main-container">
-    <section class="left">
-      <div class="card">
-        <div class="icon">
-          <img src="https://cdn-icons-png.flaticon.com/512/892/892458.png" alt="Moda">
-        </div>
-        <h2>Moda Femenina</h2>
-        <p>Descubre tu estilo único</p>
-      </div>
-    </section>
+  <section class="seccion-categorias">
+        <br>  
+    <br>
+    <hr>
+    <h2>Categorías Destacadas</h2>
 
-    <section class="right">
-      <div class="form-container">
-        <h2>Crear Cuenta</h2>
-        <p>Únete a nuestra comunidad de moda</p>
-        <form>
-          <div class="form-group">
-            <input type="text" placeholder="Nombre" required>
-            <input type="text" placeholder="Apellido" required>
-          </div>
-          <input type="email" placeholder="Correo Electrónico" required>
-          <input type="tel" placeholder="Teléfono">
-          <input type="password" placeholder="Contraseña" required>
-          <input type="password" placeholder="Confirmar Contraseña" required>
-          <input type="date" placeholder="Fecha de Nacimiento">
-          <button type="submit">Registrarse</button>
-        </form>
-      </div>
-    </section>
-  </main>
+    <div class="contenedor-categorias">
+
+      <!-- Tarjeta 1 -->
+  <a href="catalogo.html?cat=femenina" class="tarjeta-categoria">
+  <img src="img/Moda.jpg" alt="Catalogo de Moda">
+  <h3>Moda Femenina</h3>
+    </a>
+
+
+      <!-- Tarjeta 2 -->
+  <a href="catalogo.html?cat=femenina" class="tarjeta-categoria">
+  <img src="img/Calzado.jpg" alt="Calzado">
+  <h3>Calzado</h3>
+    </a>
+
+
+          <!-- Tarjeta 3 -->
+  <a href="catalogo.html?cat=femenina" class="tarjeta-categoria">
+  <img src="img/Oferta.avif" alt="Ofertas">
+  <h3>Ofertas</h3>
+    </a>
+
+  </div>
+</section>  
 </body>
 </html>
