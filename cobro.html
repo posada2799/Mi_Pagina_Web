@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Fashions - Finalizar Compra</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #f4f4f9; padding: 20px; }
+        .checkout-container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .checkout-container { grid-template-columns: 1fr; } }
+        
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { margin-bottom: 15px; color: #333; font-size: 1.2rem; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        
+        .resumen-item { display: flex; justify-content: space-between; margin-bottom: 10px; color: #444; }
+        .total { font-size: 1.2rem; font-weight: bold; color: #2e7d32; border-top: 2px solid #eee; padding-top: 10px; margin-top: 10px; }
+        
+        .btn-pagar { width: 100%; background: #000; color: #fff; border: none; padding: 12px; border-radius: 4px; font-size: 1rem; cursor: pointer; font-weight: bold; }
+        .btn-pagar:hover { background: #333; }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <!-- Formulario que envía los datos a tu archivo registro.php -->
+        <div class="card">
+            <h2>Datos de Envío y Pago</h2>
+            <form action="procesar.php" method="POST">
+                <!-- Le indicamos al PHP que ejecute la acción 'pago' -->
+                <input type="hidden" name="accion" value="pago">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre_cliente" required placeholder="Ej. Juan Posada">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono / WhatsApp</label>
+                    <input type="tel" id="telefono" name="telefono" required placeholder="Ej. 3001234567">
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección de Entrega</label>
+                    <input type="text" id="direccion" name="direccion" required placeholder="Calle, Carrera, Barrio...">
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" id="ciudad" name="ciudad" value="Bogotá" required>
+                </div>
+                <div class="form-group">
+                    <label for="metodo_pago">Método de Pago</label>
+                    <select id="metodo_pago" name="metodo_pago" required>
+                        <option value="Pago Contraentrega">Pago Contraentrega</option>
+                        <option value="Nequi / Daviplata">Nequi / Daviplata</option>
+                        <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                    </select>
+                </div>
+
+                <!-- Monto total de prueba -->
+                <input type="hidden" name="total_compra" value="85000">
+
+                <button type="submit" class="btn-pagar">Confirmar y Realizar Pedido</button>
+            </form>
+        </div>
+
+        <!-- Resumen de la Compra -->
+        <div class="card">
+            <h2>Resumen de la Compra</h2>
+            <div class="resumen-item">
+                <span>Producto de Prueba</span>
+                <span>$ 70.000</span>
+            </div>
+            <div class="resumen-item">
+                <span>Costo de Envío</span>
+                <span>$ 15.000</span>
+            </div>
+            <div class="resumen-item total">
+                <span>Total a Pagar</span>
+                <span>$ 85.000</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

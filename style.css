@@ -1,5 +1,5 @@
 /* ==========================================
-   1. ESTILOS GENERALES Y BASE
+1. ESTILOS GENERALES Y BASE
    ========================================== */
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('img/fondo.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('img/fondo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,12 +22,12 @@ body {
 /* NAVBAR (Compartido para todas las páginas) */
 .navbar {
   width: 100%;
+  background: rgb(82, 23, 19); /* Vinotinto marca */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 60px;
-  background: rgb(82, 23, 19); /* Vinotinto marca */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 15px 40px;
 }
 
 .logo {
@@ -54,21 +54,44 @@ body {
   font-size: 18px;
 }
 
-nav a {
+.navbar-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  margin-left: 40px;
+}
+
+.menu-izquierda, .menu-derecha {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.menu-izquierda a, .menu-derecha a {
   text-decoration: none;
   color: #f5f5f5;
-  margin-left: 25px;
   font-weight: 500;
+  font-size: 14px;
   transition: color 0.3s;
 }
 
-nav a:hover {
+.menu-izquierda a:hover, .menu-derecha a:hover {
   color: #f8bbd0;
+}
+
+.btn-cerrar {
+  background-color: #d9534f !important;
+  color: white !important;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 
 /* ==========================================
-   2. ESTILOS DE LOGIN Y REGISTRO
+2. ESTILOS DE LOGIN Y REGISTRO
    ========================================== */
 .main-container {
   flex: 1;
@@ -169,7 +192,7 @@ button:hover {
 
 
 /* ==========================================
-   3. ESTILOS DE LA PÁGINA DE INICIO (INDEX)
+3. ESTILOS DE LA PÁGINA DE INICIO (INDEX)
    ========================================== */
 
 /* Banner Principal */
@@ -179,6 +202,25 @@ button:hover {
   color: white;
 }
 
+.banner_medio {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0;
+  overflow: hidden;
+}
+
+.banner_medio img {
+  width: 100%;
+  max-height: 650px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+ 
 .banner_principal .subtitulo {
   font-size: 22px;
 }
@@ -209,25 +251,43 @@ button:hover {
   margin-bottom: 20px;
 }
 
-.contenedor-categorias {
+/* Contenedor del carrusel horizontal */
+.carrusel-categorias {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 25px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 15px 10px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
+.carrusel-categorias::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tarjetas rectangulares */
 .tarjeta-categoria {
-  background-color: #FDF0E6; /* Tono crema/durazno suave */
-  border-radius: 16px;       /* Bordes curvos elegantes */
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background-color: #FDF0E6;
+  border-radius: 16px;
   padding: 15px;
   width: 200px;
   text-decoration: none;
-  color: #521713;             /* Texto vinotinto para que combine con el diseño */
+  color: #521713;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-categoria:hover {
+  transform: translateY(-5px);
 }
 
 .tarjeta-categoria img {
@@ -235,83 +295,287 @@ button:hover {
   height: 160px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-/* Productos */
-.seccion-productos {
-  padding: 30px;
-  text-align: center;
+.tarjeta-categoria h3 {
+  font-size: 16px;
 }
 
-.seccion-productos h2 {
-  color: white;
-  margin-bottom: 20px;
-}
-
-.contenedor-productos {
+/* Puntos del carrusel animados y grandes */
+.puntos-carrusel {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
 }
 
-.tarjeta-producto {
-  background: white;
-  border-radius: 12px;
-  padding: 15px;
-  width: 180px;
-}
-
-.tarjeta-producto img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.tarjeta-producto .precio {
-  font-weight: bold;
-  color: #521713;
-  margin: 8px 0;
-}
-
-.btn-carrito {
-  background-color: #521713;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 6px;
-  width: 100%;
+.punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  display: inline-block;
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Barra de Beneficios (Footer) */
-.barra-beneficios {
-  background: white;
-  display: flex;
-  justify-content: space-around;
-  padding: 15px;
-  font-weight: bold;
-  color: #521713;
-  margin-top: auto; /* Empuja el pie de página hasta abajo */
+.punto.activo {
+  background-color: #ffffff;
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 
 /* ==========================================
-   4. DISEÑO ADAPTABLE / RESPONSIVE (AL FINAL)
+4. ESTILOS DEL FOOTER Y NEWSLETTER
    ========================================== */
-@media (max-width: 900px) {
-  .main-container {
-    flex-direction: column;
-    padding: 20px;
-  }
 
-  .left .card,
-  .form-container {
-    width: 100%;
-  }
+.seccion-newsletter {
+  background-color: #f8bbd0;
+  padding: 40px 60px;
+  color: #521713;
+}
 
-  .left .icon img {
-    width: 100%;
-  }
+.newsletter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.newsletter-texto h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.newsletter-texto p {
+  font-size: 14px;
+  color: #333333;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 280px;
+  margin: 0;
+}
+
+.newsletter-form button {
+  background-color: #521713;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+  width: auto;
+}
+
+.newsletter-form button:hover {
+  background-color: #73201a;
+}
+
+/* Footer Negro Principal */
+.footer-principal {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 50px 60px 20px 60px;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.footer-col p {
+  font-size: 13px;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #f8bbd0;
+}
+
+.marca-col .logo-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.redes-sociales a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.telefono {
+  margin-top: 15px;
+  color: #ffffff !important;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #333333;
+  text-align: center;
+  font-size: 12px;
+  color: #888888;
+}
+
+/* ==========================================
+5. ESTILOS DEL CATÁLOGO
+   ========================================== */
+.catalogo-main {
+  padding: 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.titulo-seccion {
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+/* Botones de Filtro */
+.filtros-categorias {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.btn-filtro {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  width: auto;
+}
+
+.btn-filtro:hover, .btn-filtro.activo {
+  background-color: #521713;
+  border-color: #521713;
+  color: #ffffff;
+}
+
+/* Grilla de Tarjetas */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.tarjeta-producto {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-6px);
+}
+
+.tarjeta-producto img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.info-producto {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.info-producto h3 {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.info-producto .precio {
+  font-size: 17px;
+  font-weight: 700;
+  color: #521713;
+  margin-bottom: 12px;
+}
+
+.btn-comprar {
+  background-color: #521713;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-comprar:hover {
+  background-color: #73201a;
+}
+
+/* Ocultar productos en el catálogo */
+.tarjeta-producto.oculto {
+  display: none !important;
 }

@@ -7,17 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-      <header class="navbar">
+<!-- NAVBAR -->
+  <header class="navbar">
     <div class="logo">
       <div class="logo-circle">B</div>
       <h1>More Fashions</h1>
     </div>
-
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="#">Catálogo</a>
-      <a href="#">Ofertas</a>
-      <a href="#">Contacto</a>
+    
+    <nav class="navbar-menu">
+      <div class="menu-izquierda">
+        <a href="index.php">Inicio</a>
+        <a href="catalogo.php">Catálogo</a>
+        <a href="#">Ofertas</a>
+      </div>
+      
+      <div class="menu-derecha">
+        <a href="login.php">Iniciar Sesión</a>
+        <a href="carrito.php">Carrito</a>
+      </div>
     </nav>
   </header>
 
@@ -34,7 +41,7 @@
 
     <section class="right">
       <div class="form-container">
-        <form action="registro.php" method="POST">
+        <form action="procesar.php" method="POST">
             <input type="hidden" name="accion" value="login">
           <h2>Iniciar Sesion</h2>
 
